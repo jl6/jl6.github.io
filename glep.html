@@ -23,13 +23,7 @@
 
         .profile-frame {
             border: 2px solid #10b981;
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15), inset 0 0 10px rgba(16, 185, 129, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .profile-frame:hover {
-            box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
-            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
         }
 
         details.module-wrap {
@@ -72,41 +66,52 @@
             border-top: 1px solid rgba(16, 185, 129, 0.1);
         }
 
-        .prefix-badge {
-            background: rgba(16, 185, 129, 0.08);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            color: #10b981;
-            padding: 2px 10px;
-            font-size: 10px;
-            letter-spacing: 0.1em;
-            border-radius: 2px;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 8px;
-        }
+        .profile-frame {
+    border: 2px solid #10b981;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.15), inset 0 0 10px rgba(16, 185, 129, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-        .invite-link {
-            background: rgba(88, 101, 242, 0.1);
-            border: 1px solid rgba(88, 101, 242, 0.3);
-            color: #5865f2;
-            padding: 2px 10px;
-            font-size: 10px;
-            letter-spacing: 0.1em;
-            border-radius: 2px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 8px;
-            transition: all 0.2s ease;
-        }
+.profile-frame:hover {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+    transform: scale(1.02);
+}
 
-        .invite-link:hover {
-            background: rgba(88, 101, 242, 0.2);
-            border-color: #5865f2;
-            color: #fff;
-            box-shadow: 0 0 10px rgba(88, 101, 242, 0.2);
-        }
+.prefix-badge {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    padding: 2px 10px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.invite-link {
+    background: rgba(88, 101, 242, 0.1);
+    border: 1px solid rgba(88, 101, 242, 0.3);
+    color: #5865f2;
+    padding: 2px 10px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    transition: all 0.2s ease;
+}
+
+.invite-link:hover {
+    background: rgba(88, 101, 242, 0.2);
+    border-color: #5865f2;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(88, 101, 242, 0.2);
+}
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -115,28 +120,29 @@
 
     <div class="max-w-4xl mx-auto px-6 py-20 relative z-10 flex-grow w-full">
         
-        <!-- HEADER -->
-        <header class="mb-16 flex items-center gap-8 border-l-[3px] border-emerald-500 pl-8 py-2">
-            <img src="img/glep.jpeg" alt="Glep_Identity" class="w-24 h-24 rounded-full profile-frame bg-slate-900 object-cover">
-            <div class="flex flex-col justify-center">
-                <h1 class="text-5xl font-black text-white tracking-tighter uppercase leading-none mb-1">
-                    Glep<span class="opacity-40">#</span>0027
-                </h1>
-                <div class="flex flex-wrap items-center gap-3">
-                    <span class="prefix-badge uppercase">Default Prefix [ _ ]</span>
-                    <a href="https://discord.com/oauth2/authorize?client_id=452219783203520533&permissions=8584986789675007&scope=bot+applications.commands" target="_blank" class="invite-link uppercase">
-                        <i class="fa-brands fa-discord text-xs"></i> ADD ME
-                    </a>
-                </div>
-                <p id="load-status" class="text-[10px] text-emerald-500/40 font-bold tracking-[0.5em] uppercase mt-4 flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    Initializing_Protocol...
-                </p>
-            </div>
-        </header>
+        <!-- HEADER WITH LOCAL IMAGE -->
+ <header class="mb-16 flex items-center gap-8 border-l-[3px] border-emerald-500 pl-8 py-2">
+    <img src="img/glep.jpeg" alt="Glep_Identity" class="w-24 h-24 rounded-full profile-frame bg-slate-900 object-cover">
+    <div class="flex flex-col justify-center">
+        <h1 class="text-5xl font-black text-white tracking-tighter uppercase leading-none mb-1">
+            Glep<span class="opacity-40">#</span>0027
+        </h1>
+        <div class="flex flex-wrap items-center gap-3">
+            <span class="prefix-badge uppercase">Default Prefix [ _ ]</span>
+            <!-- Update the href attribute with your actual bot invite link -->
+            <a href="https://discord.com/oauth2/authorize?client_id=452219783203520533&permissions=8584986789675007&scope=bot+applications.commands target="_blank" class="invite-link uppercase">
+                <i class="fa-brands fa-discord text-xs"></i> ADD ME
+            </a>
+        </div>
+        <p id="load-status" class="text-[10px] text-emerald-500/40 font-bold tracking-[0.5em] uppercase mt-4 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+            Initializing_Protocol...
+        </p>
+    </div>
+</header>
 
         <div id="docs-root" class="space-y-4 mb-24">
-            <!-- Dynamic Content loaded from Tree Data -->
+            <!-- Dynamic Content -->
         </div>
     </div>
 
@@ -145,7 +151,7 @@
         <div class="max-w-4xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                 
-                <!-- TOS -->
+                <!-- USAGE AGREEMENT -->
                 <div>
                     <h3 class="text-white text-xs font-black tracking-[0.4em] uppercase mb-8 border-b border-white/5 pb-2">TOS</h3>
                     <div class="space-y-6 text-[9px] leading-relaxed uppercase opacity-60">
@@ -192,109 +198,36 @@
     </footer>
 
     <script>
-        // Static Command Tree structure derived from project directory with descriptions
-        const COMMAND_TREE = {
-            bot: [
-                { name: 'help', usage: '_help [command]', desc: 'Display bot command documentation or details for a specific command.' },
-                { name: 'invite', usage: '_invite', desc: 'Get the official authorization invite link for Glep#0027.' }
-            ],
-            channels: [
-                { name: 'clear', usage: '_clear <amount>', desc: 'Purge a specified amount of recent messages from the current channel.' },
-                { name: 'clone', usage: '_clone [channel]', desc: 'Duplicate a channel with identical permissions and settings.' },
-                { name: 'createcategory', usage: '_createcategory <name>', desc: 'Create a new category channel in the server.' },
-                { name: 'createchannel', usage: '_createchannel <type> <name>', desc: 'Create a new text or voice channel.' },
-                { name: 'delete', usage: '_delete [amount]', desc: 'Bulk remove messages from the active text channel.' },
-                { name: 'deletechannel', usage: '_deletechannel [channel]', desc: 'Permanently remove a specified channel from the server.' },
-                { name: 'nuke', usage: '_nuke', desc: 'Completely wipe all messages in the channel by cloning and replacing it.' },
-                { name: 'pin', usage: '_pin <message_id>', desc: 'Pin a specific message in the current text channel.' }
-            ],
-            database: [
-                { name: 'wipe', usage: '_wipe <user_id>', desc: 'Erase stored database records associated with a specific user ID.' }
-            ],
-            developer: [
-                { name: 'cmdf', usage: '_cmdf <command>', desc: 'Developer tool to inspect raw source code and metadata of a command.' },
-                { name: 'map', usage: '_map', desc: 'Display internal structure and file routing of the application core.' },
-                { name: 'ping', usage: '_ping', desc: 'Check system latency and WebSocket roundtrip ping.' },
-                { name: 'selfcleanuptest', usage: '_selfcleanuptest', desc: 'Run automated diagnostics for self-cleanup routines.' },
-                { name: 'stats', usage: '_stats', desc: 'Display host system resources, memory usage, and execution metrics.' },
-                { name: 'tree', usage: '_tree', desc: 'Output the hierarchical directory tree of the bot core.' },
-                { name: 'uptime', usage: '_uptime', desc: 'Show total uninterrupted uptime duration since last startup.' }
-            ],
-            moderation: [
-                { name: 'ban', usage: '_ban <user> [reason]', desc: 'Ban a member from the server with an optional logged reason.' },
-                { name: 'close', usage: '_close', desc: 'Close and archive an active moderation or support channel.' },
-                { name: 'kick', usage: '_kick <user> [reason]', desc: 'Kick a member out of the server.' },
-                { name: 'nickname', usage: '_nickname <user> <nick>', desc: 'Change or reset a server member\'s display nickname.' },
-                { name: 'trapstats', usage: '_trapstats', desc: 'Display automated security and honeypot trap statistics.' },
-                { name: 'unban', usage: '_unban <user_id>', desc: 'Revoke a ban for a previously banned user.' },
-                { name: 'warn', usage: '_warn <user> <reason>', desc: 'Issue a formal warning to a server member.' },
-                { name: 'warnings', usage: '_warnings <user>', desc: 'View all active warning records logged against a member.' }
-            ],
-            roles: [
-                { name: 'addrole', usage: '_addrole <user> <role>', desc: 'Assign a designated server role to a user.' },
-                { name: 'createrole', usage: '_createrole <name>', desc: 'Create a new server role with standard defaults.' },
-                { name: 'deleterole', usage: '_deleterole <role>', desc: 'Permanently remove a server role.' },
-                { name: 'removerole', usage: '_removerole <user> <role>', desc: 'Strip a server role from a specific member.' }
-            ],
-            setups: [
-                { name: 'cdisabled', usage: '_cdisabled', desc: 'List all currently disabled commands within the server.' },
-                { name: 'cmdtoggle', usage: '_cmdtoggle <command>', desc: 'Enable or disable a specific command server-wide.' },
-                { name: 'customcmd', usage: '_customcmd <name> <response>', desc: 'Configure custom trigger phrases and dynamic responses.' },
-                { name: 'prefix', usage: '_prefix <new_prefix>', desc: 'Modify the custom server command prefix.' },
-                { name: 'settrap', usage: '_settrap <channel>', desc: 'Designate a security honeypot channel to auto-flag bad actors.' },
-                { name: 'setuphub', usage: '_setuphub', desc: 'Initialize interactive server administration hub.' },
-                { name: 'setuplogs', usage: '_setuplogs <channel>', desc: 'Configure logging channel for system and moderation events.' },
-                { name: 'setupmail', usage: '_setupmail', desc: 'Configure private modmail communications channel.' },
-                { name: 'setuproles', usage: '_setuproles', desc: 'Configure auto-roles or self-assignable role selection.' },
-                { name: 'teardownlogs', usage: '_teardownlogs', desc: 'Disable server event logging and reset configuration.' }
-            ],
-            tools: [
-                { name: 'addemoji', usage: '_addemoji <url> <name>', desc: 'Upload a new custom emoji to the server via URL.' },
-                { name: 'avatar', usage: '_avatar [user]', desc: 'Fetch full-resolution display avatar for a user.' },
-                { name: 'emojislist', usage: '_emojislist', desc: 'Display a list of all custom emojis available in the server.' },
-                { name: 'qr', usage: '_qr <text>', desc: 'Generate a downloadable QR code image from input text or URL.' },
-                { name: 'say', usage: '_say <message>', desc: 'Repeat specified text message through the bot.' },
-                { name: 'serverinfo', usage: '_serverinfo', desc: 'Display detailed server metadata, member counts, and statistics.' },
-                { name: 'sticky', usage: '_sticky <message>', desc: 'Pin a persistent message that remains stuck at the bottom of the channel.' },
-                { name: 'userinfo', usage: '_userinfo [user]', desc: 'Display comprehensive account details and permissions for a user.' },
-                { name: 'userlookup', usage: '_userlookup <id>', desc: 'Query global Discord API details for a target User ID.' }
-            ],
-            webhook: [
-                { name: 'createwebhook', usage: '_createwebhook <name>', desc: 'Create a new channel webhook endpoint.' },
-                { name: 'webhook', usage: '_webhook <send|edit>', desc: 'Send custom formatted payloads or edit messages via webhook.' },
-                { name: 'webhookdelete', usage: '_webhookdelete <id>', desc: 'Delete an active server webhook.' },
-                { name: 'webhooklist', usage: '_webhooklist', desc: 'List all active webhooks configured in the current server.' }
-            ]
+        const CONFIG = {
+            owner: 'jl6',
+            repo: 'glep',
+            path: 'src/core/commands'
         };
 
-        function renderDocs() {
+        async function initDocs() {
             const root = document.getElementById('docs-root');
             const status = document.getElementById('load-status');
 
-            const moduleNames = Object.keys(COMMAND_TREE);
-            let totalCommands = 0;
+            try {
+                const res = await fetch(`https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}`);
+                const folders = await res.json();
 
-            root.innerHTML = '';
+                root.innerHTML = '';
+                status.innerText = `${folders.length} Modules Online`;
 
-            moduleNames.forEach(moduleName => {
-                const commands = COMMAND_TREE[moduleName];
-                totalCommands += commands.length;
-
-                const moduleElement = createModule(moduleName, commands.length);
-                const grid = moduleElement.querySelector('.cmd-grid');
-
-                commands.forEach(cmd => {
-                    const card = createCommandCard(moduleName, cmd);
-                    grid.appendChild(card);
-                });
-
-                root.appendChild(moduleElement);
-            });
-
-            status.innerText = `${moduleNames.length} Modules | ${totalCommands} Commands Online`;
+                for (const item of folders) {
+                    if (item.type === 'dir') {
+                        const moduleElement = createModule(item.name);
+                        root.appendChild(moduleElement);
+                        await fetchFolderCommands(item.name, moduleElement.querySelector('.cmd-grid'));
+                    }
+                }
+            } catch (err) {
+                root.innerHTML = `<div class="text-red-500 font-bold uppercase">Uplink_Failure</div>`;
+            }
         }
 
-        function createModule(name, count) {
+        function createModule(name) {
             const details = document.createElement('details');
             details.className = 'module-wrap rounded-lg overflow-hidden';
             details.innerHTML = `
@@ -302,7 +235,6 @@
                     <div class="flex items-center gap-4">
                         <i class="fa-solid fa-terminal text-emerald-500 text-xs"></i>
                         <span class="text-white font-black text-xs uppercase tracking-widest">${name}</span>
-                        <span class="text-[9px] text-slate-600 font-bold uppercase tracking-wider">(${count})</span>
                     </div>
                     <i class="fa-solid fa-chevron-down text-[10px] text-slate-600 chevron-icon"></i>
                 </summary>
@@ -313,27 +245,48 @@
             return details;
         }
 
-        function createCommandCard(folder, cmd) {
-            const card = document.createElement('div');
-            card.className = 'command-card p-4 rounded-md';
-            card.innerHTML = `
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div class="flex-1">
-                        <div class="flex items-center gap-3 mb-1">
-                            <span class="text-white font-bold text-[11px] tracking-tight italic">${cmd.name}</span>
-                            <span class="usage-tag tracking-tighter">${cmd.usage}</span>
-                        </div>
-                        <p class="text-[9px] text-slate-400 uppercase italic leading-tight">${cmd.desc}</p>
-                    </div>
-                    <a href="https://github.com/jl6/glep/tree/main/src/core/commands/${folder}/${cmd.name}.js" target="_blank" class="text-slate-700 hover:text-white transition-colors">
-                        <i class="fa-solid fa-code text-[10px]"></i>
-                    </a>
-                </div>
-            `;
-            return card;
+        async function fetchFolderCommands(folderName, targetGrid) {
+            try {
+                const res = await fetch(`https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}/${folderName}`);
+                const files = await res.json();
+                targetGrid.innerHTML = '';
+
+                for (const file of files) {
+                    if (file.name.endsWith('.js')) {
+                        const rawRes = await fetch(file.download_url);
+                        const code = await rawRes.text();
+                        
+                        const descMatch = code.match(/description\s*:\s*['"`](.*?)['"`]/);
+                        const usageMatch = code.match(/usage\s*:\s*['"`](.*?)['"`]/);
+                        
+                        const description = descMatch ? descMatch[1] : "Metadata missing.";
+                        // Force usage to lowercase
+                        const rawUsage = usageMatch ? usageMatch[1] : `_${file.name.replace('.js', '')}`;
+                        const usage = rawUsage.toLowerCase();
+
+                        const card = document.createElement('div');
+                        card.className = 'command-card p-4 rounded-md';
+                        card.innerHTML = `
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-1">
+                                        <span class="text-white font-bold text-[11px] tracking-tight italic">_${file.name.replace('.js', '').toLowerCase()}</span>
+                                        <span class="usage-tag tracking-tighter">${usage}</span>
+                                    </div>
+                                    <p class="text-[9px] text-slate-500 uppercase italic leading-tight">${description}</p>
+                                </div>
+                                <a href="${file.html_url}" target="_blank" class="text-slate-700 hover:text-white transition-colors">
+                                    <i class="fa-solid fa-code text-[10px]"></i>
+                                </a>
+                            </div>
+                        `;
+                        targetGrid.appendChild(card);
+                    }
+                }
+            } catch (e) { console.error(e); }
         }
 
-        renderDocs();
+        initDocs();
     </script>
 </body>
 </html>
