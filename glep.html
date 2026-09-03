@@ -3,290 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glep#0027</title>
+    <title>Glep#0027 - Commands & Legal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
-        
-        body { 
-            font-family: 'JetBrains Mono', monospace; 
-            background-color: #030303;
-            color: #94a3b8;
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #050505;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
         }
-
-        .terminal-grid {
-            background-image: radial-gradient(circle, #10b981 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.05;
+        .glow-border {
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
-
-        .profile-frame {
-            border: 2px solid #10b981;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        .scroll-area::-webkit-scrollbar {
+            width: 6px;
         }
-
-        details.module-wrap {
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.01);
-            transition: all 0.3s ease;
+        .scroll-area::-webkit-scrollbar-track {
+            background: transparent;
         }
-
-        details.module-wrap[open] {
-            border-color: rgba(16, 185, 129, 0.2);
-            background: rgba(16, 185, 129, 0.02);
-        }
-
-        summary.module-trigger {
-            list-style: none;
-            cursor: pointer;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .command-card {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-left: 2px solid rgba(16, 185, 129, 0.1);
-        }
-
-        .usage-tag {
-            background: rgba(16, 185, 129, 0.1);
-            color: #10b981;
-            padding: 2px 6px;
+        .scroll-area::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 3px;
-            font-size: 9px;
-            font-weight: 800;
         }
-
-        .legal-box {
-            background: linear-gradient(180deg, rgba(16, 185, 129, 0.03) 0%, transparent 100%);
-            border-top: 1px solid rgba(16, 185, 129, 0.1);
+        .scroll-area::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
-
-        .profile-frame {
-    border: 2px solid #10b981;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.15), inset 0 0 10px rgba(16, 185, 129, 0.2);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.profile-frame:hover {
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
-    transform: scale(1.02);
-}
-
-.prefix-badge {
-    background: rgba(16, 185, 129, 0.08);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    color: #10b981;
-    padding: 2px 10px;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    border-radius: 2px;
-    font-weight: 700;
-    display: inline-block;
-    margin-top: 8px;
-}
-
-.invite-link {
-    background: rgba(88, 101, 242, 0.1);
-    border: 1px solid rgba(88, 101, 242, 0.3);
-    color: #5865f2;
-    padding: 2px 10px;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    border-radius: 2px;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 8px;
-    transition: all 0.2s ease;
-}
-
-.invite-link:hover {
-    background: rgba(88, 101, 242, 0.2);
-    border-color: #5865f2;
-    color: #fff;
-    box-shadow: 0 0 10px rgba(88, 101, 242, 0.2);
-}
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="text-zinc-400 antialiased selection:bg-zinc-800 selection:text-zinc-100 min-h-screen flex flex-col justify-between">
 
-    <div class="fixed inset-0 pointer-events-none terminal-grid"></div>
-
-    <div class="max-w-4xl mx-auto px-6 py-20 relative z-10 flex-grow w-full">
-        
-        <!-- HEADER WITH LOCAL IMAGE -->
- <header class="mb-16 flex items-center gap-8 border-l-[3px] border-emerald-500 pl-8 py-2">
-    <img src="img/glep.jpeg" alt="Glep_Identity" class="w-24 h-24 rounded-full profile-frame bg-slate-900 object-cover">
-    <div class="flex flex-col justify-center">
-        <h1 class="text-5xl font-black text-white tracking-tighter uppercase leading-none mb-1">
-            Glep<span class="opacity-40">#</span>0027
-        </h1>
-        <div class="flex flex-wrap items-center gap-3">
-            <span class="prefix-badge uppercase">Default Prefix [ _ ]</span>
-            <!-- Update the href attribute with your actual bot invite link -->
-            <a href="https://discord.com/oauth2/authorize?client_id=452219783203520533&permissions=8584986789675007&scope=bot+applications.commands target="_blank" class="invite-link uppercase">
-                <i class="fa-brands fa-discord text-xs"></i> ADD ME
-            </a>
-        </div>
-        <p id="load-status" class="text-[10px] text-emerald-500/40 font-bold tracking-[0.5em] uppercase mt-4 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-            Initializing_Protocol...
-        </p>
-    </div>
-</header>
-
-        <div id="docs-root" class="space-y-4 mb-24">
-            <!-- Dynamic Content -->
-        </div>
-    </div>
-
-    <!-- LEGAL FOOTER -->
-    <footer class="legal-box relative z-10 py-16 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                
-                <!-- USAGE AGREEMENT -->
-                <div>
-                    <h3 class="text-white text-xs font-black tracking-[0.4em] uppercase mb-8 border-b border-white/5 pb-2">TOS</h3>
-                    <div class="space-y-6 text-[9px] leading-relaxed uppercase opacity-60">
-                        <div class="flex gap-4">
-                            <span class="text-emerald-500 font-bold">01</span>
-                            <div>
-                                <h4 class="text-white font-bold mb-1">Authorization</h4>
-                                <p>By authorizing Glep#0027, you acknowledge adherence to standard Discord Community Guidelines.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <span class="text-emerald-500 font-bold">02</span>
-                            <div>
-                                <h4 class="text-white font-bold mb-1">System Integrity</h4>
-                                <p>Exploitation of vulnerabilities or intentional abuse is monitored and results in a global blacklist.</p>
-                            </div>
-                        </div>
-                    </div>
+    <div class="max-w-3xl mx-auto w-full px-6 py-20 flex flex-col gap-8">
+        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 pb-8 border-b border-zinc-900/80">
+            <div class="flex items-center gap-3">
+                <img src="img/glep.jpeg" alt="Glep" class="w-8 h-8 rounded-full glow-border object-cover bg-zinc-900">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <h1 class="text-zinc-100 text-sm font-bold tracking-tight">Glep <span class="text-zinc-600 font-normal">#0027</span></h1>
                 </div>
-
-                <!-- PRIVACY POLICY -->
-                <div>
-                    <h3 class="text-white text-xs font-black tracking-[0.4em] uppercase mb-8 border-b border-white/5 pb-2">Privacy Policy</h3>
-                    <div class="space-y-6 text-[9px] leading-relaxed uppercase opacity-60">
-                        <div class="flex gap-4">
-                            <span class="text-emerald-500 font-bold">01</span>
-                            <div>
-                                <h4 class="text-white font-bold mb-1">Data Protocols</h4>
-                                <p>We utilize SQLite for secure storage of User IDs. No private message content is permanently logged.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <span class="text-emerald-500 font-bold">02</span>
-                            <div>
-                                <h4 class="text-white font-bold mb-1">Wipe Management</h4>
-                                <p>Full data erasure is available upon request. Contact the developer to initiate a complete wipe.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
-    </footer>
+            <nav class="flex items-center gap-3 text-xs text-zinc-500 bg-zinc-900/50 px-3 py-1.5 rounded-md glow-border">
+                <a id="navCommands" class="text-zinc-200 transition-colors cursor-pointer" href="#commands">commands</a>
+                <span class="text-zinc-700">/</span>
+                <a id="navTos" class="hover:text-zinc-200 transition-colors cursor-pointer" href="#tos">terms</a>
+                <span class="text-zinc-700">/</span>
+                <a id="navPrivacy" class="hover:text-zinc-200 transition-colors cursor-pointer" href="#privacy">privacy</a>
+            </nav>
+        </header>
+
+        <main class="flex-1">
+            <section id="viewCommands" class="bg-zinc-900/20 glow-border rounded-lg p-6 flex flex-col h-[70vh]">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-[11px] font-bold uppercase tracking-widest text-zinc-600">Commands Registry</h2>
+                    <div id="cmdCount" class="text-[10px] bg-zinc-900 text-zinc-500 px-2 py-0.5 rounded glow-border">loading...</div>
+                </div>
+                <input type="text" id="cmdFilter" class="w-full bg-zinc-950 border border-zinc-800 text-zinc-300 px-3 py-2 rounded text-xs focus:outline-none focus:border-zinc-700 mb-4 transition-colors" placeholder="search by name, description, or path..." autofocus>
+                <div class="scroll-area overflow-y-auto flex-1 pr-1">
+                    <div id="cmdContainer" class="flex flex-col gap-3">
+                        <div class="text-zinc-600 text-xs italic text-center py-12">fetching commands from github...</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="viewTos" class="bg-zinc-900/20 glow-border rounded-lg p-6 flex flex-col h-[70vh] hidden">
+                <h2 class="text-[11px] font-bold uppercase tracking-widest text-zinc-600 mb-4">Terms of Service</h2>
+                <div class="scroll-area overflow-y-auto flex-1 pr-1 text-xs space-y-4 text-zinc-500 leading-relaxed">
+                    <p class="text-zinc-600">Last updated: 2026</p>
+                    <h3 class="text-zinc-300 font-medium pt-2">1. Acceptance of Terms</h3>
+                    <p>By adding Glep#0027 to your Discord server or interacting with its features, you agree to comply with and be bound by these Terms of Service.</p>
+                    <h3 class="text-zinc-300 font-medium pt-2">2. Usage Restrictions</h3>
+                    <p>You may not use the bot for any illegal activities, spamming, abuse, or attempting to exploit vulnerabilities within the bot or Discord's API.</p>
+                    <h3 class="text-zinc-300 font-medium pt-2">3. Availability & Service Changes</h3>
+                    <p>The bot is provided on an as-is basis without guarantees of uptime or permanent availability. Features may be modified, added, or removed at any time.</p>
+                    <h3 class="text-zinc-300 font-medium pt-2">4. Limitation of Liability</h3>
+                    <p>The developers of Glep are not responsible for any data loss, server disruptions, or damages resulting from the use or inability to use the bot.</p>
+                </div>
+            </section>
+
+            <section id="viewPrivacy" class="bg-zinc-900/20 glow-border rounded-lg p-6 flex flex-col h-[70vh] hidden">
+                <h2 class="text-[11px] font-bold uppercase tracking-widest text-zinc-600 mb-4">Privacy Policy</h2>
+                <div class="scroll-area overflow-y-auto flex-1 pr-1 text-xs space-y-4 text-zinc-500 leading-relaxed">
+                    <p class="text-zinc-600">Last updated: 2026</p>
+                    <h3 class="text-zinc-300 font-medium pt-2">1. Data Collected</h3>
+                    <p>Glep collects and stores basic operational data required for functionality, including server IDs, user IDs, command configurations, moderation logs, and custom settings stored in the database.</p>
+                    <h3 class="text-zinc-300 font-medium pt-2">2. Data Usage</h3>
+                    <p>Collected data is used strictly for executing bot functions such as moderation tracking, custom settings, user utilities, and maintaining server configurations.</p>
+                    <h3 class="text-zinc-300 font-medium pt-2">3. Data Retention</h3>
+                    <p>Data is stored securely within the bot's local database. Server administrators may request data deletion or database wipes via available developer commands or repository tools.</p>
+                    <h3 class="text-zinc-300 font-medium pt-2">4. Third-Party Sharing</h3>
+                    <p>No data collected by the bot is sold, shared, or transferred to any external third parties.</p>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <script>
-        const CONFIG = {
-            owner: 'jl6',
-            repo: 'glep',
-            path: 'src/core/commands'
+        const elContainer = document.getElementById('cmdContainer');
+        const elFilter = document.getElementById('cmdFilter');
+        const elCount = document.getElementById('cmdCount');
+        
+        const views = {
+            commands: document.getElementById('viewCommands'),
+            tos: document.getElementById('viewTos'),
+            privacy: document.getElementById('viewPrivacy')
         };
 
-        async function initDocs() {
-            const root = document.getElementById('docs-root');
-            const status = document.getElementById('load-status');
+        const navs = {
+            commands: document.getElementById('navCommands'),
+            tos: document.getElementById('navTos'),
+            privacy: document.getElementById('navPrivacy')
+        };
 
+        let cache = [];
+
+        const switchView = (target) => {
+            Object.values(views).forEach(el => el.classList.add('hidden'));
+            Object.values(navs).forEach(el => el.classList.remove('text-zinc-200'));
+            Object.values(navs).forEach(el => el.classList.add('hover:text-zinc-200'));
+
+            views[target].classList.remove('hidden');
+            navs[target].classList.add('text-zinc-200');
+            navs[target].classList.remove('hover:text-zinc-200');
+
+            if (target === 'commands') elFilter.focus();
+        };
+
+        Object.keys(navs).forEach(key => {
+            navs[key].addEventListener('click', (e) => {
+                e.preventDefault();
+                switchView(key);
+            });
+        });
+
+        const parseCommandFile = (path, content) => {
+            const nameMatch = content.match(/name\s*:\s*['"`](.*?)['"`]/i) || content.match(/name\s*=\s*['"`](.*?)['"`]/i);
+            const descMatch = content.match(/description\s*:\s*['"`](.*?)['"`]/i) || content.match(/description\s*=\s*['"`](.*?)['"`]/i);
+            const usageMatch = content.match(/usage\s*:\s*['"`](.*?)['"`]/i) || content.match(/usage\s*=\s*['"`](.*?)['"`]/i);
+            const fileName = path.split('/').pop().replace('.js', '');
+
+            return {
+                name: nameMatch ? nameMatch[1] : fileName,
+                description: descMatch ? descMatch[1] : 'No description provided.',
+                usage: usageMatch ? usageMatch[1] : `!${fileName}`,
+                path: path
+            };
+        };
+
+        const renderCommands = (list) => {
+            elCount.textContent = `${list.length} loaded`;
+            if (!list.length) {
+                elContainer.innerHTML = `<div class="text-zinc-600 text-xs italic text-center py-12">no matching commands found</div>`;
+                return;
+            }
+            elContainer.innerHTML = list.map(c => `
+                <div class="bg-zinc-950 glow-border p-3.5 rounded">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-medium text-emerald-400">${c.name}</span>
+                        <span class="text-[10px] text-zinc-700">${c.path}</span>
+                    </div>
+                    <p class="text-xs text-zinc-500 mb-2">${c.description}</p>
+                    <span class="text-[10px] text-zinc-600 bg-zinc-900 border border-zinc-800 px-1.5 py-0.5 rounded">${c.usage}</span>
+                </div>
+            `).join('');
+        };
+
+        async function loadCommands() {
             try {
-                const res = await fetch(`https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}`);
-                const folders = await res.json();
-
-                root.innerHTML = '';
-                status.innerText = `${folders.length} Modules Online`;
-
-                for (const item of folders) {
-                    if (item.type === 'dir') {
-                        const moduleElement = createModule(item.name);
-                        root.appendChild(moduleElement);
-                        await fetchFolderCommands(item.name, moduleElement.querySelector('.cmd-grid'));
+                const res = await fetch('https://api.github.com/repos/jl6/Glep/git/trees/main?recursive=1');
+                if (!res.ok) throw new Error('api error');
+                const data = await res.json();
+                
+                const commandFiles = data.tree.filter(item => item.path.includes('src/core/commands/') && item.path.endsWith('.js'));
+                
+                const promises = commandFiles.map(async file => {
+                    try {
+                        const rawRes = await fetch(`https://raw.githubusercontent.com/jl6/Glep/main/${file.path}`);
+                        if (!rawRes.ok) return null;
+                        const code = await rawRes.text();
+                        return parseCommandFile(file.path, code);
+                    } catch {
+                        return null;
                     }
-                }
-            } catch (err) {
-                root.innerHTML = `<div class="text-red-500 font-bold uppercase">Uplink_Failure</div>`;
+                });
+
+                cache = (await Promise.all(promises)).filter(Boolean);
+                renderCommands(cache);
+            } catch {
+                elCount.textContent = 'error';
+                elContainer.innerHTML = `<div class="text-zinc-600 text-xs italic text-center py-12">failed to load commands from github.</div>`;
             }
         }
 
-        function createModule(name) {
-            const details = document.createElement('details');
-            details.className = 'module-wrap rounded-lg overflow-hidden';
-            details.innerHTML = `
-                <summary class="module-trigger hover:bg-white/5 transition-all">
-                    <div class="flex items-center gap-4">
-                        <i class="fa-solid fa-terminal text-emerald-500 text-xs"></i>
-                        <span class="text-white font-black text-xs uppercase tracking-widest">${name}</span>
-                    </div>
-                    <i class="fa-solid fa-chevron-down text-[10px] text-slate-600 chevron-icon"></i>
-                </summary>
-                <div class="px-6 pb-6 pt-2 border-t border-white/5">
-                    <div class="grid grid-cols-1 gap-3 cmd-grid"></div>
-                </div>
-            `;
-            return details;
-        }
+        elFilter.addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            const filtered = cache.filter(c => 
+                c.name.toLowerCase().includes(val) || 
+                c.description.toLowerCase().includes(val) || 
+                c.path.toLowerCase().includes(val)
+            );
+            renderCommands(filtered);
+        });
 
-        async function fetchFolderCommands(folderName, targetGrid) {
-            try {
-                const res = await fetch(`https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}/${folderName}`);
-                const files = await res.json();
-                targetGrid.innerHTML = '';
-
-                for (const file of files) {
-                    if (file.name.endsWith('.js')) {
-                        const rawRes = await fetch(file.download_url);
-                        const code = await rawRes.text();
-                        
-                        const descMatch = code.match(/description\s*:\s*['"`](.*?)['"`]/);
-                        const usageMatch = code.match(/usage\s*:\s*['"`](.*?)['"`]/);
-                        
-                        const description = descMatch ? descMatch[1] : "Metadata missing.";
-                        // Force usage to lowercase
-                        const rawUsage = usageMatch ? usageMatch[1] : `_${file.name.replace('.js', '')}`;
-                        const usage = rawUsage.toLowerCase();
-
-                        const card = document.createElement('div');
-                        card.className = 'command-card p-4 rounded-md';
-                        card.innerHTML = `
-                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-1">
-                                        <span class="text-white font-bold text-[11px] tracking-tight italic">_${file.name.replace('.js', '').toLowerCase()}</span>
-                                        <span class="usage-tag tracking-tighter">${usage}</span>
-                                    </div>
-                                    <p class="text-[9px] text-slate-500 uppercase italic leading-tight">${description}</p>
-                                </div>
-                                <a href="${file.html_url}" target="_blank" class="text-slate-700 hover:text-white transition-colors">
-                                    <i class="fa-solid fa-code text-[10px]"></i>
-                                </a>
-                            </div>
-                        `;
-                        targetGrid.appendChild(card);
-                    }
-                }
-            } catch (e) { console.error(e); }
-        }
-
-        initDocs();
+        loadCommands();
     </script>
 </body>
 </html>

@@ -3,68 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J | Projects</title>
-    <link rel="icon" type="image/x-icon" href="img/favicon.svg">
+    <title>j</title>
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
-        body { font-family: 'JetBrains+Mono', monospace; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #050505;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glow-border {
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
-<body class="bg-[#0a0a0a] text-zinc-400 min-h-screen selection:bg-zinc-800 selection:text-white antialiased">
+<body class="text-zinc-400 antialiased selection:bg-zinc-800 selection:text-zinc-100 min-h-screen flex flex-col justify-between">
 
-    <div class="max-w-5xl mx-auto px-8 py-20">
-        
-        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-24 gap-6">
-            <div>
-                <h1 class="text-2xl font-bold tracking-tight text-zinc-100">
-                    j/<span class="text-zinc-500 font-normal">projects</span>
-                </h1>
-                <div class="flex gap-4 mt-3 text-xs text-zinc-500">
-                    <a href="https://github.com/jl6" target="_blank" class="hover:text-zinc-300 transition-colors">github</a>
-                    <span>•</span>
-                    <span class="cursor-default">discord: osecd</span>
-                    <span>•</span>
-                    <a href="https://discord.gg/48t5FWHw4S" target="_blank" class="hover:text-zinc-300 transition-colors">server</a>
+    <div class="max-w-3xl mx-auto w-full px-6 py-20">
+        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-16 pb-8 border-b border-zinc-900/80">
+            <div class="flex items-center gap-3">
+                <img src="https://github.com/jl6.png" alt="jl6" class="w-8 h-8 rounded-full glow-border object-cover bg-zinc-900">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <h1 class="text-zinc-100 text-sm font-bold tracking-tight">j</h1>
+                    </div>
                 </div>
             </div>
-            <div class="text-xs text-zinc-600 tracking-widest uppercase sm:text-right">
-                I need to sleep
-            </div>
+            <nav class="flex items-center gap-3 text-xs text-zinc-500 bg-zinc-900/50 px-3 py-1.5 rounded-md glow-border">
+                <a href="https://github.com/jl6" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-200 transition-colors">github</a>
+                <span class="text-zinc-700">/</span>
+                <span class="text-zinc-500">discord: j7o</span>
+                <span class="text-zinc-700">/</span>
+                <a href="https://discord.gg/48t5FWHw4S" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-200 transition-colors">server</a>
+            </nav>
         </header>
 
         <main class="space-y-12">
-            
-            <div class="border-b border-zinc-900 pb-2 mb-8">
-                <span class="text-[10px] uppercase tracking-widest text-zinc-600 font-bold">Glep</span>
-            </div>
+            <section class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-[11px] font-bold uppercase tracking-widest text-zinc-600">Active Projects</h2>
+                    <span class="text-[10px] text-zinc-600">showing 01</span>
+                </div>
+                
+                <div class="grid gap-4">
+                    <article class="relative group bg-zinc-900/20 glow-border p-5 rounded-lg hover:bg-zinc-900/40 transition-all">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-sm font-medium text-zinc-200 group-hover:text-emerald-400 transition-colors">
+                                <a href="glep.html" class="focus:outline-none">
+                                    <span class="absolute inset-0"></span>
+                                    Glep#0027 Bot
+                                </a>
+                            </h3>
+                            <span class="text-[10px] bg-zinc-900 text-zinc-500 px-2 py-0.5 rounded glow-border">stable</span>
+                        </div>
+                        
+                        <div class="space-y-2 text-xs text-zinc-500 leading-relaxed max-w-xl">
+                            <p><strong class="text-zinc-300 font-medium">Custom Prefixes:</strong> Traditional command handling that can be changed to fit your server's needs.</p>
+                            <p><strong class="text-zinc-300 font-medium">Moderation & Shields:</strong> Essential moderation commands (ban, kick, warn, unban) paired with automated security shields for filtering links, spam, and media.</p>
+                            <p><strong class="text-zinc-300 font-medium">Welcome System:</strong> Configurable canvas welcome cards, plain text greetings, leave notices, and direct message alerts managed through interactive setup buttons.</p>
+                            <p><strong class="text-zinc-300 font-medium">DCUO Census Integration:</strong> Track player stats, check name availability, and monitor characters by unique hash IDs to accurately log scammer name changes.</p>
+                            <p><strong class="text-zinc-300 font-medium">Voice Hubs:</strong> Dynamic creation and teardown of temporary voice channels for community management.</p>
+                            <p><strong class="text-zinc-300 font-medium">Tools & Utilities:</strong> Includes AFK tracking, QR code generation, sticky messages, custom commands, and reaction roles.</p>
+                        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-                <a href="glep.html" class="group block space-y-2 md:col-span-2 pt-4 border-t border-zinc-900">
-                    <div class="flex justify-between items-baseline">
-                        <h4 class="text-sm font-medium text-zinc-200 group-hover:text-emerald-400 transition-colors">Glep#0027 BOT</h4>
-                        <span class="text-[10px] text-zinc-600">10</span>
-                    </div>
-                    <p class="text-xs text-zinc-500 leading-relaxed">Gleps TOS and Privacy Policy page</p>
-                </a>
-
-            </div>
+                        <div class="mt-4 flex items-center gap-2 text-[10px] text-zinc-600">
+                            <span class="text-zinc-500">node.js</span>
+                            <span>•</span>
+                            <span class="text-zinc-500">discord.js</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
         </main>
-
-        <footer class="mt-36 pt-8 border-t border-zinc-900 text-[11px] text-zinc-600 space-y-6">
-            <div class="flex flex-col sm:flex-row justify-between gap-4">
-                <p></p>
-                <p></p>
-                <p></p>
-            </div>
-            
-            <div class="pt-8 flex justify-center">
-                <a href="tools/notes.html" class="text-zinc-500 hover:text-zinc-300 transition-colors tracking-widest text-[10px]">
-                    [ notes  ]
-                </a>
-            </div>
-        </footer>
-
     </div>
 
 </body>
