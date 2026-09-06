@@ -144,10 +144,14 @@
             const usageMatch = content.match(/usage\s*:\s*['"`](.*?)['"`]/i) || content.match(/usage\s*=\s*['"`](.*?)['"`]/i);
             const fileName = path.split('/').pop().replace('.js', '');
 
+            const cmdName = nameMatch ? nameMatch[1] : fileName;
+            const rawUsage = usageMatch ? usageMatch[1].trim() : '';
+            const usageStr = rawUsage === '' ? `_${cmdName}` : `_${cmdName} ${rawUsage}`;
+
             return {
-                name: nameMatch ? nameMatch[1] : fileName,
+                name: cmdName,
                 description: descMatch ? descMatch[1] : 'No description provided.',
-                usage: usageMatch ? usageMatch[1] : `!${fileName}`,
+                usage: usageStr,
                 path: path
             };
         };
